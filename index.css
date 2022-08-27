@@ -20,11 +20,12 @@ main{
     grid-template-areas: 
     ". . ."
     ". card ."
-    ". . ."
+    ". attribution ."
     ;
     justify-content: center;
+    min-height: 100vh;
     background-color: var(--light-gray-blue);
-    height: 100vh;
+    padding: 2rem 0 0 0;
 }
 
 .card{
@@ -32,15 +33,19 @@ main{
     width: 23rem;
     border-radius: 1em;
     background-color: white;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-areas: 
+    "image"
+    "content"
+    ;
 }
 
 .image{
     background-image: url("./images/drawers.jpg");
     background-size: cover;
-    height: 45%;
+    height: 25rem;
     border-radius: 1em 1em 0 0;
+    grid-area: image;
 }
 
 .content {
@@ -48,16 +53,19 @@ main{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    grid-area: content;
 }
 
 .headline {
     color: var(--very-dark-gray-blue);
     font-weight: 700;
+    font-size: 1.5rem;
 }
 
 .paragraph {
     color: var(--grayish-blue);
     font-weight: 500;
+    font-size: 1.1rem;
 }
 
 .info{
@@ -95,10 +103,39 @@ main{
     margin-left: auto;
 }
 
-footer {
-    padding: 0 2rem 1rem 2rem;
+.share{
+    display: none;
 }
 
-.hidden{
-    display: none;
+.attribution{
+    grid-area: attribution;
+}
+
+@media (min-width: 1440px){
+    .card{
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        grid-template-areas: 
+        "image content"
+        ;
+        width: 800px;
+        height: 25rem;
+    }
+    .image{
+        grid-area: image;
+        border-radius: 1em 0 0 1em;
+    }
+
+    .content{
+        grid-area: content;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    .attribution {
+        align-self: end;
+    }
 }
