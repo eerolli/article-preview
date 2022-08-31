@@ -15,68 +15,51 @@
     font-size: 13px;
 }
 
-main{
-    display: grid;
-    grid-template-areas: 
-    ". . ."
-    ". card ."
-    ". attribution ."
-    ;
-    justify-content: center;
-    min-height: 100vh;
+body{
     background-color: var(--light-gray-blue);
-    padding: 2rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Manrope", sans-serif;
 }
 
 .card{
-    grid-area: card;
-    width: 23rem;
+    margin: 2rem 0 2rem 0;
+    width: 25rem;
     border-radius: 1em;
     background-color: white;
-    display: grid;
-    grid-template-areas: 
-    "image"
-    "content"
-    ;
+    display: flex;
+    flex-direction: column;
 }
 
 .image{
-    background-image: url("./images/drawers.jpg");
-    background-size: cover;
-    height: 25rem;
-    border-radius: 1em 1em 0 0;
-    grid-area: image;
+    max-width: 100%;
+    border-radius:  1em 1em 0 0;
 }
 
-.content {
-    padding: 2rem;
+.middle{
+    margin: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    grid-area: content;
+    gap: 1rem;
 }
 
-.headline {
+.headline{
     color: var(--very-dark-gray-blue);
-    font-weight: 700;
-    font-size: 1.5rem;
 }
 
-.paragraph {
+.paragraph{
     color: var(--grayish-blue);
-    font-weight: 500;
-    font-size: 1.1rem;
 }
 
-.info{
+.bottom{
     display: flex;
-    line-height: 1;
-    gap: 5px;
     align-items: center;
+    margin: 1rem;
 }
 
 .avatar{
-    width: 48px;
+    width: 35px;
     height: auto;
     border-radius: 50%;
 }
@@ -84,58 +67,32 @@ main{
 .identity{
     display: flex;
     flex-direction: column;
+    margin-left: 10px;
+    line-height: 0.8;
 }
 
-.name {
+.name{
     color: var(--very-dark-gray-blue);
 }
 
-.date {
+.date{
     color: var(--grayish-blue);
 }
 
-.share-icon {
-    width: 24px;
-    height: 24px;
-    padding: 5px;
+.share-icon{
+    width: 25px;
+    height: 25px;
     background-color: var(--light-gray-blue);
     border-radius: 50%;
     margin-left: auto;
+    padding: 5px;
 }
 
-.share{
-    display: none;
-}
 
-.attribution{
-    grid-area: attribution;
-}
-
-@media (min-width: 1440px){
+@media(min-width:800px){
     .card{
-        display: grid;
-        grid-template-columns: 0.8fr 1.2fr;
-        grid-template-areas: 
-        "image content"
-        ;
-        width: 800px;
+        flex-direction: row;
         height: 25rem;
-    }
-    .image{
-        grid-area: image;
-        border-radius: 1em 0 0 1em;
-    }
-
-    .content{
-        grid-area: content;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        padding-left: 3rem;
-        padding-right: 3rem;
-    }
-
-    .attribution {
-        align-self: end;
+        width: 50rem;
     }
 }
