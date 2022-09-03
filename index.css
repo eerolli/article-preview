@@ -17,6 +17,7 @@
 
 body{
     background-color: var(--light-gray-blue);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,9 +91,37 @@ body{
 
 
 @media(min-width:800px){
+    body{
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .card{
-        flex-direction: row;
-        height: 25rem;
-        width: 50rem;
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        grid-template-areas: 
+        "hero middle"
+        "hero bottom"
+        ;
+        height: 20rem;
+        width: 40rem;
+    }
+    
+    .hero{
+        grid-area: hero;
+    }
+
+    .image{
+        height: 100%;
+        border-radius: 1em 0 0 1em;
+    }
+
+    .middle{
+        grid-area: middle;
+    }
+
+    .bottom{
+        grid-area: bottom;
     }
 }
